@@ -1,0 +1,17 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/Pay/Verify?OrderId={orderid}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7112
+        }
+      ],
+
+      "UpstreamPathTemplate": "/api/Pay/Verify?OrderId={orderid}",
+      "UpstreamHttpMethod": [ "GET" ]
+    }
+  ]
+}

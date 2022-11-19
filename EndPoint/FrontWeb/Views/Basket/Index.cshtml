@@ -1,0 +1,164 @@
+﻿@model Microservices.Web.Frontend.Services.BasketServices.BasketDto
+
+@{
+    ViewData["Title"] = "Basket";
+}
+<h1>Basket</h1>
+
+<div class="row text-right">
+    <table class="table col-md-9">
+        <thead>
+            <tr>
+
+                <th>
+                    <label asp-for="items.FirstOrDefault().productName"></label>
+                </th>
+                <th>
+                    <label asp-for="items.FirstOrDefault().unitPrice"></label>
+                </th>
+                <th>
+                    <label asp-for="items.FirstOrDefault().quantity"></label>
+                </th>
+
+                <th>
+                    <label>Total Price</label>
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.items)
+            {
+                <tr>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.productName)
+                    </td>
+                    <td>
+                        <b class="text-success">@item.unitPrice.ToString("n0")  $</b>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.quantity)
+
+                    
+
+                    </td>
+                    <td>
+                        <b class="text-success">@item.TotalPrice().ToString("n0")  $</b>
+                    </td>
+                    <td class="row">
+                        <a class="btn btn-danger" asp-action="Delete" asp-controller="Basket" asp-route-id="@item.id"> Delete</a>
+                        <a class="btn btn-warning" onclick="ShowEdit('@item.id','@item.quantity')">Edit Count</a>
+
+
+                       
+                    </td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr class="bg-dark text-white">
+
+                <td>
+                    Total Price
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                    <b>@Model.TotalPrice().ToString("n0")  $</b>
+                </td>
+                <td>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <div id="editQuantity" style="display:none" >
+        <div class="">
+            <div>
+
+                <form asp-action="Edit" asp-controller="Basket">
+                    <div class="">
+                        <input type="hidden" id="BasketItemId" name="BasketItemId" value="" />
+                        <input type="number" id="quantity" name="quantity" value="" />
+                    </div>
+                    <div class="">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Back</button>
+                        <button type="submit" class="btn btn-primary">Do Change</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 card">
+        <div class="row col-md-12 card-body ">
+            <label>Use Discount Code</label>
+            <input type="text" class="form-control col-md-12" id="txtDiscountCode" placeholder="Enter the discount code" />
+            <button type="submit" onclick="ApplyDiscountCode()" id="btnApplyDiscountCode" class="btn btn-warning btn-sm col-md-12">Check Code</button>
+
+
+            <hr />
+            @if (Model.DiscountDetail != null)
+            {
+                <div>
+                    <b> Discount code used :</b>
+                    <small>  @Model.DiscountDetail.DiscountCode</small>
+
+                    <b class="col-md-12">Amount : @Model.DiscountDetail.Amount.ToString("n0")  $</b>
+                </div>
+
+            }
+
+        </div>
+    </div>
+</div>
+
+
+<br />
+<a asp-action="Checkout" asp-controller="Basket" class="btn btn-success  col-md-12">Register Order</a>
+
+
+
+
+@section Scripts
+{
+
+    <script>
+
+        function ShowEdit(BasketItemId, quantity) {
+            $("#BasketItemId").val(BasketItemId);
+            $("#quantity").val(quantity);
+            $("#editQuantity").slideToggle();
+        }
+
+        function ApplyDiscountCode() {
+
+            var code = $("#txtDiscountCode").val();
+
+            var postData = { 'DiscountCode': code };
+
+            $.ajax({
+                contentType: 'application/x-www-form-urlencoded',
+                dataType: 'json',
+                type: "POST",
+                url: "Basket/ApplyDiscount",
+                data: postData,
+                success: function (data) {
+                    if (data.isSuccess) {
+                        alert(data.message)
+                    }
+                    else {
+                        alert(data.message)
+                    }
+                }
+            });
+        }
+
+    </script>
+
+
+}
+

@@ -1,0 +1,93 @@
+﻿@model Microservices.Web.Frontend.Services.BasketServices.CheckoutDto
+@{
+    ViewData["Title"] = "Checkout";
+}
+
+<section class="order-form my-4 mx-4 text-right">
+    <div class="container pt-4">
+
+        <form method="post" class="row">
+            <div class="col-12">
+                <h1>Register Order</h1>
+                <span>Pelase Fill Order Info</span>
+                <hr class="mt-1">
+            </div>
+            <div class="col-12">
+
+                <div class="row mx-4">
+                    <div class="col-12 mb-2">
+                        <label class="order-form-label">Name</label>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <input asp-for="FirstName" class="order-form-input form-control" placeholder="FirstName">
+                    </div>
+                    <div class="col-12 col-sm-6 mt-2 mt-sm-0">
+                        <input asp-for="LastName" class="order-form-input form-control" placeholder="LastName">
+                    </div>
+                </div>
+
+
+
+
+                <div class="row mt-3 mx-4">
+                    <div class="col-12">
+                        <label class="order-form-label">Address  </label>
+                    </div>
+                    <div class="col-12">
+                        <input asp-for="Address" class="order-form-input form-control" placeholder="Delivery Address">
+                    </div>
+
+                    <div class="col-12 col-sm-6 mt-2 pr-sm-2">
+                        <input asp-for="PostalCode" class="order-form-input form-control" placeholder="Postal Code">
+                    </div>
+                    <div class="col-12 col-sm-6 mt-2 pl-sm-0">
+                        <input asp-for="PhoneNumber" class="order-form-input form-control" placeholder="Phone">
+                    </div>
+                </div>
+
+
+
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-success d-block mx-auto btn-submit">Register Order</button>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</section>
+
+<style>
+    .order-form .container {
+        color: #4c4c4c;
+        padding: 20px;
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, .1);
+    }
+
+    .order-form-label {
+        margin: 8px 0 0 0;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    .order-form-input {
+        width: 100%;
+        padding: 8px 8px;
+        border-width: 1px !important;
+        border-style: solid !important;
+        border-radius: 3px !important;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 14px;
+        font-weight: normal;
+        font-style: normal;
+        line-height: 1.2em;
+        background-color: transparent;
+        border-color: #cccccc;
+    }
+
+    .btn-submit:hover {
+        background-color: #090909 !important;
+    }
+</style>
+

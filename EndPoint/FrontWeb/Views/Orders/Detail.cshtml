@@ -1,0 +1,77 @@
+﻿@using Microservices.Web.Frontend.Services.OrderServices;
+@model OrderDetailDto;
+@{
+    ViewData["Title"] = $"Order Details { Model.Id}";
+
+}
+
+<h2>Order Info</h2>
+<div class="row col-md-12">
+
+    <div class="row col-md-4">
+        <b>Oder Info</b>
+
+        <table class="table table-bordered table-hover table-secondary  ">
+            <tr>
+                <td>Date</td>
+                <td>Total Price</td>
+                <td>Payment Status</td>
+            </tr>
+            <tr>
+                <td>@Model.OrderPlaced</td>
+                <td>@Model.TotalPrice.ToString("n0")</td>
+                <td>@Model.OrderPaid</td>
+            </tr>
+        </table>
+    </div>
+    <div class="row col-md-6">
+        <b>Delivery Addresss</b>
+        <table class="table table-bordered table-hover">
+            <tr>
+                <td>Reciver</td>
+                <td>Phone</td>
+                <td>Address</td>
+            </tr>
+            <tr>
+                <td> @Model.FirstName  @Model.LastName</td>
+                <td>@Model.PhoneNumber </td>
+                <td> @Model.Address </td>
+            </tr>
+        </table>
+    </div>
+
+
+    <div class="row col-md-12">
+        <b>Products In Order</b>
+        <table class="table table-bordered table-hover">
+            <tr>
+                <td>Product Name</td>
+                <td>UnitPrice</td>
+                <td>Count</td>
+                <td>Total Price</td>
+            </tr>
+            <tr>
+                @foreach (var item in Model.OrderLines)
+                {
+                    <td>@item.Name</td>
+                    <td>@item.Price</td>
+                    <td>@item.Quantity</td>
+                    <td> @{int totalPrice = item.Price * item.Quantity; }  <b> @totalPrice.ToString("n0") </b></td>
+                }
+            </tr>
+        </table>
+    </div>
+
+    <div class="row col-md-12">
+        <table class="table table-bordered table-hover">
+            <tr>
+                <td>Discount Amount</td>
+                <td> <b>@(Model.OrderLines.Sum(p=> p.Price * p.Quantity) -  Model.TotalPrice )</b>  </td>
+                <td>Total Price</td>
+                <td>@Model.TotalPrice </td>
+            </tr>
+
+        </table>
+    </div>
+</div>
+

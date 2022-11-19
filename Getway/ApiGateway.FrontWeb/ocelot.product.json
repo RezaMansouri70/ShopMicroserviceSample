@@ -1,0 +1,101 @@
+﻿{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/Product",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7061
+        }
+      ],
+
+      "UpstreamPathTemplate": "/api/Product",
+      "UpstreamHttpMethod": [ "GET" ]
+      //"RateLimitOptions": {
+      //  "EnableRateLimiting": true, // فعال یا غیر فعال
+      //  "Period": "2s", // بازه زمانی
+      //  "PeriodTimespan": 5, // مدت زمانی که باید صبر کنیم برای درخواست بعدی
+      //  "Limit": 1 // محدودیت درخواست
+      //} ,
+      //"QoSOptions": {
+      //  "ExceptionsAllowedBeforeBreaking": 3, // بعد از چند خطا مدار را باز کنم؟
+      //  "DurationOfBreak": 5000, // به چه مدت مدار باز باشد؟
+      //  "TimeoutValue": 9000 // اگر هر درخواست بیشتر از تایم زمان برد آن را برگشت بده- منتظر درخواست نمون
+      //},
+      //"FileCacheOptions": {
+      //  "TtlSeconds": 30, // زمان کش
+      //  "Region": "Cache"
+      //}
+
+    },
+    {
+      "DownstreamPathTemplate": "/api/Product/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7061
+        }
+      ],
+
+      "UpstreamPathTemplate": "/api/Product/{id}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "Key": "getproduct" 
+      //"QoSOptions": {
+      //  "TimeoutValue": 3000
+      //}
+    },
+    //---------- category
+    {
+      "DownstreamPathTemplate": "/api/Category",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7061
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Category",
+      "UpstreamHttpMethod": [ "GET", "POST" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/ProductManagement",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7061
+        }
+      ],
+      "UpstreamPathTemplate": "/api/ProductManagement",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/ProductManagement/{Id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7061
+        }
+      ],
+      "UpstreamPathTemplate": "/api/ProductManagement/{Id}",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    // price
+    {
+      "DownstreamPathTemplate": "/api/ProductPriceManagement",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7061
+        }
+      ],
+      "UpstreamPathTemplate": "/api/ProductPriceManagement",
+      "UpstreamHttpMethod": [ "POST" ]
+    }
+
+  ]
+}

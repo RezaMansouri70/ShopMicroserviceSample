@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Microservices.Web.Frontend.Services.ProductServices.ProductDto>
+
+@{
+    ViewData["Title"] = "Products";
+}
+
+<h1>Products </h1>
+
+
+<table class="table table-hover table-bordered table-responsive">
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.price)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.name)
+                </td>
+                <td>
+                    @item.price.ToString("n0")  $
+                </td>
+                <td>
+                    <a asp-action="Details" class="btn btn-info"
+                   asp-controller="Product"
+                   asp-route-id="@item.id">
+                        Details
+                    </a>
+                    <a asp-action="AddToBasket" asp-controller="Basket" asp-route-ProductId="@item.id" class="btn btn-success"> Add To Basket </a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

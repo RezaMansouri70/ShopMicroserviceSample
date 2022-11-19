@@ -1,0 +1,34 @@
+version: "3.2"
+services:
+
+
+  sql-server-db:
+    container_name: sql-server-db
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    ports:
+      - "1433:1433"
+    environment:
+      SA_PASSWORD: "str0ngp@ssword"
+      ACCEPT_EULA: "Y"
+    volumes:
+      - sql_data:/home/sql/data
+
+  rabbitmq:
+    container_name: rabbitmq
+    image: rabbitmq:3-management
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    volumes:
+      - rabbitmq_data:/home/rabbitmq/data
+  mongo-db:
+    container_name: mongo-db
+    image: mongo:4.4.6
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/home/mongo/data
+volumes:
+  sql_data:
+  rabbitmq_data:
+  mongo_data:

@@ -1,0 +1,45 @@
+﻿@using static Microservices.Web.Frontend.Controllers.AuthenticationController
+@model LoginDTO
+@{
+    ViewData["Title"] = "Login";
+}
+
+<section class="order-form my-4 mx-4 text-right">
+    <div class="container pt-4">
+
+        <form method="post" action="Login" class="row">
+            <div class="col-12">
+                <h1>Login </h1>
+                <hr class="mt-1">
+            </div>
+            <div class="col-12">
+
+                <div class="row mx-4">
+                    
+                    <div class="col-12 col-sm-6">
+                        <input asp-for="Mobile" class="order-form-input form-control" placeholder="Mobile">
+                    </div>
+                    <div class="col-12 col-sm-6 mt-2 mt-sm-0">
+                        <input asp-for="Password" type="password" class="order-form-input form-control" placeholder="Password">
+                    </div>
+                </div>
+
+
+                <div>@ViewBag.Message</div>
+
+
+
+            </div>
+
+
+
+            <div class="row mt-3">
+                <div class="col-12">
+                    <button type="submit" class="btn btn-success d-block mx-auto btn-submit">Login</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    
+    </div>
+</section>
