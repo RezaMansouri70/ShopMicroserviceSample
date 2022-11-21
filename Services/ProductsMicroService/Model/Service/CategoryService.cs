@@ -4,12 +4,6 @@ using ProductsMicroService.Infrastructure;
 
 namespace ProductsMicroService.Service
 {
-    public interface ICategoryService
-    {
-        List<CategoryDto> GetCategories();
-        Guid AddNewCatrgory(CategoryDto category);
-        CategoryDto Getcategory(Guid categoryId);
-    }
     public class CategoryService : ICategoryService
     {
         private readonly ProductDatabaseContext context;

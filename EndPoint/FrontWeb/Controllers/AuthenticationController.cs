@@ -51,9 +51,6 @@ namespace Microservices.Web.Frontend.Controllers
             }
 
             var token = JsonSerializer.Deserialize<AuthResult>(response.Content);
-
-
-
             if (token.status)
             {
                 var cookieOptions = new CookieOptions();

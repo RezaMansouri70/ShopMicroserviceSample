@@ -1,26 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using OrderMicroService.Infrastructure.Context;
-using OrderMicroService.MessagingBus;
-using OrderMicroService.Model.Dto;
-using OrderMicroService.Model.Entities;
 using RabbitMqMessageBus.MessagingBus;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace OrderMicroService.Model.Services
 {
-    public interface IOrderService
-    {
-
-        List<OrderDto> GetOrdersForUser(string UserId);
-        OrderDetailDto GetOrderById(Guid Id);
-
-    }
-
-
     public class OrderService : IOrderService
     {
         private readonly OrderDataBaseContext context;
@@ -86,43 +70,5 @@ namespace OrderMicroService.Model.Services
             return orders;
         }
 
-    }
-
-
-
-    public class OrderDto
-    {
-        public Guid Id { get; set; }
-        public int ItemCount { get; set; }
-        public int TotalPrice { get; set; }
-        public bool OrderPaid { get; set; }
-        public DateTime OrderPlaced { get; set; }
-        public PaymentStatus PaymentStatus { get; set; }
-
-    }
-
-
-    public class OrderDetailDto
-    {
-        public Guid Id { get; set; }
-        public string UserId { get; set; }
-        public DateTime OrderPlaced { get; set; }
-        public bool OrderPaid { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Address { get; set; }
-        public string PhoneNumber { get; set; }
-        public int TotalPrice { get; set; }
-        public List<OrderLineDto> OrderLines { get; set; }
-        public PaymentStatus PaymentStatus { get; set; }
-
-    }
-
-    public class OrderLineDto
-    {
-        public Guid Id { get; set; }
-        public int Quantity { get; set; }
-        public string Name { get; set; }
-        public int Price { get; set; }
     }
 }
