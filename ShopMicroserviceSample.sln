@@ -20,7 +20,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{63B212A0-884B-4B98-8AF8-905C3E87A318}"
 	ProjectSection(SolutionItems) = preProject
 		docker-compose.yml = docker-compose.yml
-		ReadMe.txt = ReadMe.txt
+		ReadMe.md = ReadMe.md
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiGateway.FrontWeb", "Getway\ApiGateway.FrontWeb\ApiGateway.FrontWeb.csproj", "{C4C7FE9A-E27C-4940-8794-EF5DBF66AF54}"
