@@ -1,6 +1,6 @@
 
 <b>For Run On Docker</b><br>
-Run All Services On Docker Use Docker Compose Up Command In  Root Project Thath Has docker-compose.yml File
+Run All Services On Docker Use Docker Compose Up Command In  Root Project That Has docker-compose.yml File
 <br>
 docker-compose up
 <br>
