@@ -36,6 +36,15 @@ builder.Services.Configure<RabbitMqConfiguration>(builder.Configuration.GetSecti
 
 var app = builder.Build();
 
+
+// migrate any database changes on startup 
+using (var scope = app.Services.CreateScope())
+{
+    var dataContext = scope.ServiceProvider.GetRequiredService<ProductDatabaseContext>();
+    dataContext.Database.Migrate();
+}
+
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

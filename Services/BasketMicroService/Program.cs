@@ -49,6 +49,14 @@ builder.Services.AddHostedService<ReceivedUpdateProductNameMessage>();
 
 var app = builder.Build();
 
+
+// migrate any database changes on startup 
+using (var scope = app.Services.CreateScope())
+{
+    var dataContext = scope.ServiceProvider.GetRequiredService<BasketDataBaseContext>();
+    dataContext.Database.Migrate();
+}
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

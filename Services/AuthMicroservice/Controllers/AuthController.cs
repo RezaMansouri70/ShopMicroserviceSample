@@ -48,7 +48,7 @@ namespace AuthMicroservice.Controllers
             {
 
                 var tokenString = TokenManagerService.CreateToken(_userService.GetUserClaim(login.Mobile));
-                return Ok(new { token = tokenString  , status=true });
+                return Ok(new { token = tokenString  , status = true });
             }
             else 
             {

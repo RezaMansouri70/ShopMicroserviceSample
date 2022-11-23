@@ -1,5 +1,4 @@
 using ApplicationServices.Services.UserService;
-using AuthMicroservice.Filter;
 using DataLayer.SqlServer.Common;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
@@ -24,12 +23,22 @@ builder.Services.AddDbContext<ApplicationContext>(options => options.UseSqlServe
 
 
 
+
 builder.Services.AddHttpContextAccessor();
-builder.Services.AddScoped<AutenticationFilter>();
 builder.Services.AddScoped<IUserService, UserService>();
 
 
 var app = builder.Build();
+
+
+
+// migrate any database changes on startup 
+using (var scope = app.Services.CreateScope())
+{
+    var dataContext = scope.ServiceProvider.GetRequiredService<ApplicationContext>();
+    dataContext.Database.Migrate();
+}
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

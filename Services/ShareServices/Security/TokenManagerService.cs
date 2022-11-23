@@ -21,15 +21,7 @@ namespace SharedService.Service
             ClaimsIdentity claimsIdentity = new ClaimsIdentity();// new[]
             foreach (var key in keyValues)
             {
-                try
-                {
-                    claimsIdentity.AddClaim(new Claim(key.Key, key.Value.ToString()));
-
-                }
-                catch (Exception)
-                {
-
-                }
+                claimsIdentity.AddClaim(new Claim(key.Key, key.Value.ToString()));
             }
             const string sec = "401b09eab3c013d4ca54922bb802bec8fd5318192b0a75f201d8b3727429090fb337591abd3e44453b954555b7a0812e1081c39b740293f765eae731f5a65ed1";
             var securityKey = new SymmetricSecurityKey(System.Text.Encoding.Default.GetBytes(sec));
@@ -97,11 +89,11 @@ namespace SharedService.Service
                 securityToken = handler.ReadToken(decryptedtoken);
                 var tokenDecodeJwt = handler.ReadJwtToken(decryptedtoken);
                 response.Token = token;
-                response.UserID = Guid.Parse( tokenDecodeJwt.Claims.FirstOrDefault(a => a.Type == "UserID").Value);
+                response.UserID = Guid.Parse(tokenDecodeJwt.Claims.FirstOrDefault(a => a.Type == "UserID").Value);
                 response.UserName = tokenDecodeJwt.Claims.FirstOrDefault(a => a.Type == "UserName").Value;
                 response.Roles = tokenDecodeJwt.Claims.FirstOrDefault(a => a.Type == "Roles").Value;
-                response.LoginDate = DateTime.Parse( tokenDecodeJwt.Claims.FirstOrDefault(a => a.Type == "LoginDate").Value);
-                response.ExpireDate = DateTime.Parse( tokenDecodeJwt.Claims.FirstOrDefault(a => a.Type == "ExpireDate").Value);
+                response.LoginDate = DateTime.Parse(tokenDecodeJwt.Claims.FirstOrDefault(a => a.Type == "LoginDate").Value);
+                response.ExpireDate = DateTime.Parse(tokenDecodeJwt.Claims.FirstOrDefault(a => a.Type == "ExpireDate").Value);
 
             }
             catch (Exception)
@@ -131,7 +123,7 @@ namespace SharedService.Service
         public DateTime LoginDate { get; set; }
         public DateTime ExpireDate { get; set; }
 
-                 
+
     }
 
 }

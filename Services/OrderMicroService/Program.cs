@@ -58,6 +58,16 @@ builder.Services.AddTransient<IVerifyProductService>(p =>
 
 var app = builder.Build();
 
+
+
+
+// migrate any database changes on startup 
+using (var scope = app.Services.CreateScope())
+{
+    var dataContext = scope.ServiceProvider.GetRequiredService<OrderDataBaseContext>();
+    dataContext.Database.Migrate();
+}
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
