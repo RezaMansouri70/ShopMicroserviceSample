@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Filter;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ProductsMicroService.DTO;
 using ProductsMicroService.Service;
+using System.Data;
 
 namespace ProductsMicroService.Controllers
 {
@@ -27,6 +29,7 @@ namespace ProductsMicroService.Controllers
         }
 
         // POST api/<CategoryController>
+        [AutenticationFilter(Roles = "Admin")]
         [HttpPost]
         public IActionResult Post([FromBody] CategoryDto categoryDto)
         {
