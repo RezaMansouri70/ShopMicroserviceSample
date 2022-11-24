@@ -21,7 +21,7 @@ namespace Filter
                 context.HttpContext.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
                 context.Result = new JsonResult("Pelase Send Valid Token In Request Header :| "); ;
             }
-            if (!string.IsNullOrEmpty(Roles))
+            if (!string.IsNullOrEmpty(Roles) && !string.IsNullOrEmpty(userInfo.UserName))
             {
                 var AllUserrole = userInfo.Roles?.Split(",");
                 if ( !AllUserrole.Contains(Roles))
