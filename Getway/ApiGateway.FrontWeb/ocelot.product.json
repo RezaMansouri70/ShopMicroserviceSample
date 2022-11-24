@@ -13,18 +13,18 @@
       "UpstreamPathTemplate": "/api/Product",
       "UpstreamHttpMethod": [ "GET" ]
       //"RateLimitOptions": {
-      //  "EnableRateLimiting": true, // فعال یا غیر فعال
-      //  "Period": "2s", // بازه زمانی
-      //  "PeriodTimespan": 5, // مدت زمانی که باید صبر کنیم برای درخواست بعدی
-      //  "Limit": 1 // محدودیت درخواست
+      //  "EnableRateLimiting": true,
+      //  "Period": "2s", 
+      //  "PeriodTimespan": 5, 
+      //  "Limit": 1
       //} ,
       //"QoSOptions": {
-      //  "ExceptionsAllowedBeforeBreaking": 3, // بعد از چند خطا مدار را باز کنم؟
-      //  "DurationOfBreak": 5000, // به چه مدت مدار باز باشد؟
-      //  "TimeoutValue": 9000 // اگر هر درخواست بیشتر از تایم زمان برد آن را برگشت بده- منتظر درخواست نمون
+      //  "ExceptionsAllowedBeforeBreaking": 3, 
+      //  "DurationOfBreak": 5000, 
+      //  "TimeoutValue": 9000 
       //},
       //"FileCacheOptions": {
-      //  "TtlSeconds": 30, // زمان کش
+      //  "TtlSeconds": 30, 
       //  "Region": "Cache"
       //}
 
