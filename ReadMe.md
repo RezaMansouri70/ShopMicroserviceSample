@@ -1,5 +1,5 @@
 
-For See How To Run And More Information Pelase See The Article
+For See How To Run And More Information Please See The Article
 
 <h2> <a href="https://medium.com/@rezamansouri/implementing-microservice-architecture-in-net-part-1-project-overview-2d94b79607e3" target="_blank" > Implementing Microservice Architecture In .NET </a>  </h2>
 
