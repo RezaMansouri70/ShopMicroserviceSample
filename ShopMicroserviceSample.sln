@@ -23,7 +23,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{
 		ReadMe.md = ReadMe.md
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiGateway.FrontWeb", "Getway\ApiGateway.FrontWeb\ApiGateway.FrontWeb.csproj", "{C4C7FE9A-E27C-4940-8794-EF5DBF66AF54}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiGateway.FrontWeb", "GateWay\ApiGateway.FrontWeb\ApiGateway.FrontWeb.csproj", "{C4C7FE9A-E27C-4940-8794-EF5DBF66AF54}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FrontWeb", "EndPoint\FrontWeb\FrontWeb.csproj", "{4AA88E68-8F3F-421C-B69C-A90C71CA8430}"
 EndProject
