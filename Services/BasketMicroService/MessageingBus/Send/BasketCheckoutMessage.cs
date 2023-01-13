@@ -5,9 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BasketMicroService.Model.Services.BasketServices.MessageDto
+namespace BasketMicroService.MessageingBus.Send
 {
-    public class BasketCheckoutMessage:BaseMessage
+    public class BasketCheckoutMessage : BaseMessage
     {
         public Guid BasketId { get; set; }
         public string FirstName { get; set; }
@@ -17,7 +17,7 @@ namespace BasketMicroService.Model.Services.BasketServices.MessageDto
         public string PostalCode { get; set; }
         public string UserId { get; set; }
         public int TotalPrice { get; set; }
-        public List<BasketItemMessage> BasketItems { get; set; } 
+        public List<BasketItemMessage> BasketItems { get; set; }
             = new List<BasketItemMessage>();
 
 

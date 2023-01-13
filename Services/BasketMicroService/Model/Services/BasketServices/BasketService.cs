@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 using BasketMicroService.Infrastructure.Contexts;
 using BasketMicroService.MessageingBus;
+using BasketMicroService.MessageingBus.Send;
 using BasketMicroService.Model.Dtos;
 using BasketMicroService.Model.Entities;
-using BasketMicroService.Model.Services.BasketServices.MessageDto;
 using BasketMicroService.Model.Services.DiscountServices;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;

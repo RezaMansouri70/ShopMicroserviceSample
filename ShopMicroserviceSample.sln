@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BasketMicroService", "Servi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderMicroService", "Services\OrderMicroService\OrderMicroService.csproj", "{099A6CCF-661C-47B7-9760-3B7FED119931}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Getway", "Getway", "{B3646EDE-4F60-4219-AFC2-E0B4C953BDAD}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GateWay", "GateWay", "{B3646EDE-4F60-4219-AFC2-E0B4C953BDAD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EndPoint", "EndPoint", "{64691777-1008-4C34-A71B-AE2A12A4CC29}"
 EndProject

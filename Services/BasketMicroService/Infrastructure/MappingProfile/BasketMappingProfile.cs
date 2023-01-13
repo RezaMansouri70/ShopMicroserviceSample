@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
+using BasketMicroService.MessageingBus.Send;
 using BasketMicroService.Model.Dtos;
 using BasketMicroService.Model.Entities;
-using BasketMicroService.Model.Services.BasketServices.MessageDto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
